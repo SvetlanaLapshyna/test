@@ -16,6 +16,11 @@ class RegisterPage extends Page {
     get btnRegSwitch () { return $("//button[@data-switch='register-form']") }
     get btnAgreement () { return $("//input[@id='accept-agreement']") }
     get btnSubmit () { return $("//button[@type='submit' and span='Зарегистрироваться']") }
+   
+    get verifyEmailMsg () { return $("//a[@data-action-verify-email]") }
+
+
+    
     
     /**
      * a method to encapsule automation code to interact with the page
@@ -30,8 +35,6 @@ class RegisterPage extends Page {
          this.btnRegSwitch.click(); 
     }
 
-   
-
     register (email,username,password) {
         this.open_loginForm() ;
         this.switch_register();
@@ -44,6 +47,13 @@ class RegisterPage extends Page {
        
         this.btnSubmit.click();
    }
+
+   display_VerifyEmailMsg () {
+    browser.waitUntil( ()=> {
+        return this.verifyEmailMsg.isDisplayed();
+         }, 5000, 'Verify Email Message is not displayed');
+   }
+
 
     /**
      * overwrite specifc options to adapt it to page object
