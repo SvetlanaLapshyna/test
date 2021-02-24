@@ -3,6 +3,7 @@ let var1=9;
 let var2=3*3;
 let var3=(3-4)*8;
 let var4=-9;
+let var5=10
 
 //const assert = require('assert');
 function pow(x, n) {
